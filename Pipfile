@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=3.1.1"
+django-base = {editable = true, path = "."}
+
+[dev-packages]
+django-base = {editable = true, path = "."}
+cookiecutter = "*"
+coverage = "*"
+build = "*"
+
+[requires]
+python_version = "3.7"
