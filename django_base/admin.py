@@ -1,11 +1,9 @@
-from django.contrib import admin
-
-from .models import BaseModel
+from simple_history.admin import SimpleHistoryAdmin
 
 import functools
 
 
-class _BaseModelAdmin(admin.ModelAdmin):
+class _BaseModelAdmin(SimpleHistoryAdmin):
     @staticmethod
     def extend_with(attr):
         def _extend_with(get_attr):
