@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cb5df8f835ce6efb95a3fb92bbe8e4e01a0749810210c4810012aaae882b87d5"
+            "sha256": "db4d83b86d80ebf5544c07b8b77b9476f42b4f0a3ac2e1b1a3ca1e1095e931dc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,10 +31,6 @@
             ],
             "index": "pypi",
             "version": "==3.1.13"
-        },
-        "django-base": {
-            "editable": true,
-            "path": "."
         },
         "pytz": {
             "hashes": [

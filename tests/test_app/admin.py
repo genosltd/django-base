@@ -1,6 +1,9 @@
 from django.contrib import admin
-from django_base import admin as django_base_admin
+from django_base.admin import BaseModelAdmin
 
-from . import models
+from test_app.models import TestModel
 
-# Create your admin here.
+
+@admin.register(TestModel)
+class TestModelAdmin(BaseModelAdmin):
+    pass

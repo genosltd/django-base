@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+from django_base.models import BaseModel
+
+
+class ExampleModel(BaseModel):
+    pass
