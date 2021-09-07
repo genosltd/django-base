@@ -25,8 +25,13 @@ class _BaseModelAdmin(SimpleHistoryAdmin):
 
 
 class BaseModelAdmin(_BaseModelAdmin):
-    list_display = ('user', 'created', 'modified')
     readonly_fields = ('created', 'modified')
+
+    @_BaseModelAdmin.extend_with(readonly_fields)
+    def get_readonly_fields(self, request, obj=None):
+        return super().get_readonly_fields(request, obj)
+
+    list_display = ('user', 'created', 'modified')
 
     @_BaseModelAdmin.extend_with(list_display)
     def get_list_display(self, request):

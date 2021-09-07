@@ -70,3 +70,16 @@ class BaseModelAdminTestCase(TestCase):
         fields = base_modeladmin.get_fields(request, obj=instance)
 
         self.assertEqual(fields, tuple())
+
+    def test_get_readonly_fields(self):
+        instance = self.instance
+        url = reverse('admin:test_app_testmodel_change', args=(instance.id,))
+        request = self.request_factory.get(url)
+        request.user = self.user
+        base_modeladmin = TestModelAdmin(TestModel, admin.site)
+        readonly_fields = base_modeladmin.get_readonly_fields(request,
+                                                              obj=instance)
+
+        self.assertEqual(readonly_fields, ('created', 'modified'))
+
+
