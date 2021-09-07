@@ -25,7 +25,7 @@ class _BaseModelAdmin(SimpleHistoryAdmin):
 
 
 class BaseModelAdmin(_BaseModelAdmin):
-    readonly_fields = ('created', 'modified')
+    readonly_fields = ('created', 'modified', 'uuid')
 
     @_BaseModelAdmin.extend_with(readonly_fields)
     def get_readonly_fields(self, request, obj=None):
@@ -53,7 +53,7 @@ class BaseModelAdmin(_BaseModelAdmin):
     def get_list_filter(self, request):
         return super().get_list_filter(request)
 
-    _fields = ('user', 'created', 'modified')
+    _fields = ('user', 'created', 'modified', 'uuid')
 
     def get_fields(self, request, obj=None):
         fields = tuple(super().get_fields(request, obj))
@@ -64,7 +64,7 @@ class BaseModelAdmin(_BaseModelAdmin):
 
     _fieldsets = (
         ('Basic Info', {
-            'fields': ('user', 'created', 'modified'),
+            'fields': ('user', 'created', 'modified', 'uuid'),
             'classes': ('collapse',)
         }),
     )

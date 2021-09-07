@@ -40,7 +40,7 @@ class BaseModelAdminTestCase(TestCase):
         fieldsets = base_modeladmin.get_fieldsets(request, obj=instance)
         self.assertEqual(fieldsets[-1], (
             'Basic Info', {
-                'fields': ('user', 'created', 'modified'),
+                'fields': ('user', 'created', 'modified', 'uuid'),
                 'classes': ('collapse',)
             })
         )
@@ -80,6 +80,6 @@ class BaseModelAdminTestCase(TestCase):
         readonly_fields = base_modeladmin.get_readonly_fields(request,
                                                               obj=instance)
 
-        self.assertEqual(readonly_fields, ('created', 'modified'))
+        self.assertEqual(readonly_fields, ('created', 'modified', 'uuid'))
 
 
