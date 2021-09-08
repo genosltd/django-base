@@ -82,4 +82,11 @@ class BaseModelAdminTestCase(TestCase):
 
         self.assertEqual(readonly_fields, ('created', 'modified', 'uuid'))
 
+    def test_get_changeform_initial_data(self):
+        url = reverse('admin:test_app_testmodel_add')
+        request = self.request_factory.get(url)
+        request.user = self.user
+        base_modeladmin = TestModelAdmin(TestModel, admin.site)
+        initial_data = base_modeladmin.get_changeform_initial_data(request)
 
+        self.assertEqual(initial_data, {'user': self.user})

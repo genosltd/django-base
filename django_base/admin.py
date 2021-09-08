@@ -80,3 +80,10 @@ class BaseModelAdmin(_BaseModelAdmin):
             fieldsets[0][1]['fields'] = tuple(fields)
 
         return fieldsets
+
+    def get_changeform_initial_data(self, request):
+        data = super().get_changeform_initial_data(request)
+        if 'user' not in data:
+            data['user'] = request.user
+
+        return data
