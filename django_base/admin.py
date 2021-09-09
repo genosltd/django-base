@@ -1,5 +1,8 @@
 from simple_history.admin import SimpleHistoryAdmin
 
+from django_hashtag.admin import HasHashtagsAdmin
+from django_comment.admin import HasCommentsAdmin
+
 import functools
 
 
@@ -24,7 +27,7 @@ class _BaseModelAdmin(SimpleHistoryAdmin):
         return _extend_with
 
 
-class BaseModelAdmin(_BaseModelAdmin):
+class BaseModelAdmin(HasHashtagsAdmin, HasCommentsAdmin, _BaseModelAdmin):
     readonly_fields = ('created', 'modified', 'uuid')
 
     @_BaseModelAdmin.extend_with(readonly_fields)

@@ -4,9 +4,13 @@ from django.contrib.contenttypes.models import ContentType
 
 from simple_history.models import HistoricalRecords
 
+from django_hashtag.models import HasHashtags
+from django_comment.models import HasComments
+
 import uuid
 
-class BaseModel(models.Model):
+
+class BaseModel(HasHashtags, HasComments):
     class Meta:
         abstract = True
 

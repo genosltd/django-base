@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_base',
     'simple_history',
+    'django_hashtag.apps.DjangoHashtagConfig',
+    'django_comment.apps.DjangoCommentConfig',
+
+    'django_base',
     'example_app'
 ]
 
