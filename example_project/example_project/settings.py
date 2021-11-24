@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'simple_history',
+    'tinymce',
     'django_hashtag.apps.DjangoHashtagConfig',
     'django_comment.apps.DjangoCommentConfig',
 
     'django_base',
-    'example_app'
+    'example_app',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+########################################
+# TINYMCE settings
+######################################## 
+
+TINYMCE_DEFAULT_CONFIG = {
+   'height': 300,
+   'width': 700,
+#    'cleanup_on_startup': True,
+#    'custom_undo_redo_levels': 20,
+#    'selector': 'textarea',
+#    'theme': 'silver',
+   "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
+        "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
+        "code,help,wordcount",
+    "toolbar": "undo redo | formatselect | "
+        "bold italic backcolor | alignleft aligncenter "
+        "alignright alignjustify | bullist numlist outdent indent | "
+        "removeformat | help",
+   'menubar': True,
+   'statusbar': True,
+   }

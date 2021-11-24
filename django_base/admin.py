@@ -1,10 +1,11 @@
 from simple_history.admin import SimpleHistoryAdmin
 
+from django.db.models import TextField
 from django_hashtag.admin import HasHashtagsAdmin
 from django_comment.admin import HasCommentsAdmin
 
 import functools
-
+from tinymce.widgets import TinyMCE
 
 class _BaseModelAdmin(SimpleHistoryAdmin):
     @staticmethod
@@ -90,3 +91,7 @@ class BaseModelAdmin(HasHashtagsAdmin, HasCommentsAdmin, _BaseModelAdmin):
             data['user'] = request.user
 
         return data
+
+    formfield_overrides = {
+        TextField: {'widget': TinyMCE()}
+    }

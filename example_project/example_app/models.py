@@ -4,4 +4,4 @@ from django_base.models import BaseModel
 
 
 class ExampleModel(BaseModel):
-    pass
+    example = models.TextField(null=True, blank=True)
