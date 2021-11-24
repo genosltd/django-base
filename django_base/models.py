@@ -2,12 +2,20 @@ from django.db import models
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 
+from django.contrib.auth.models import User, Group, Permission
+
 from simple_history.models import HistoricalRecords
+import simple_history
 
 from django_hashtag.models import HasHashtags
 from django_comment.models import HasComments
 
 import uuid
+
+
+simple_history.register(User, app=__package__)
+simple_history.register(Group, app=__package__)
+simple_history.register(Permission, app=__package__)
 
 
 class BaseModel(HasHashtags, HasComments):
