@@ -16,3 +16,9 @@ dist
 
 # django
 db.sqlite3
+
+#pip-venv
+venv
+
+#cache
+__pycache__

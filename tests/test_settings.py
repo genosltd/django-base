@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django_hashtag',
     'django_comment',
 
-    'test_app',
+    'tests.test_app',
     'django_base.apps.DjangoBaseConfig',
 ]
 

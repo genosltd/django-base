@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 # from django_base import models
-from test_app.models import TestModel
+from tests.test_app.models import TestModel
 from django.contrib.auth.models import User
 
 from datetime import datetime
