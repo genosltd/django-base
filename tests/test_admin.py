@@ -2,8 +2,8 @@ from django.test import TestCase, RequestFactory
 from django.urls import reverse
 
 # from django_base import models
-from test_app.models import TestModel
-from test_app.admin import TestModelAdmin
+from .test_app.models import TestModel
+from .test_app.admin import TestModelAdmin
 from django.contrib.auth.models import User
 
 from django.contrib import admin
