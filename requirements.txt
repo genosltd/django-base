@@ -1,28 +1,27 @@
-arrow==1.2.0
+arrow==1.2.1
 asgiref==3.4.1
 binaryornot==0.4.4
 build==0.7.0
-certifi==2021.5.30
+certifi==2021.10.8
 chardet==4.0.0
-charset-normalizer==2.0.6
-click==8.0.1
+charset-normalizer==2.0.8
+click==8.0.3
 colorama==0.4.4
 cookiecutter==1.7.3
-coverage==6.0
+coverage==6.2
 Django==3.1.13
-# -e git+ssh://git@github.com/genosltd/django-base.git@088669b07e3108d71deaec9c9201b73b11b7d6d8#egg=django_base
 django-comment @ git+https://github.com/genosltd/django-comment@cfa011ae1120d9c50608714adcdf9233f77389c3
 django-hashtag @ git+https://github.com/genosltd/django-hashtag@7dac8967de1eb9ed53c19a460787e403eb21eb90
 django-simple-history==3.0.0
-idna==3.2
-importlib-metadata==4.8.1
-Jinja2==3.0.2
+idna==3.3
+importlib-metadata==4.8.2
+Jinja2==3.0.3
 jinja2-time==0.2.0
 MarkupSafe==2.0.1
-packaging==21.0
-pep517==0.11.0
+packaging==21.3
+pep517==0.12.0
 poyo==0.5.0
-pyparsing==2.4.7
+pyparsing==3.0.6
 python-dateutil==2.8.2
 python-slugify==5.0.2
 pytz==2021.3
@@ -30,7 +29,7 @@ requests==2.26.0
 six==1.16.0
 sqlparse==0.4.2
 text-unidecode==1.3
-tomli==1.2.1
-typing-extensions==3.10.0.2
+tomli==1.2.2
+typing_extensions==4.0.1
 urllib3==1.26.7
 zipp==3.6.0
