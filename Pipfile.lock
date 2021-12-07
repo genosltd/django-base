@@ -210,11 +210,11 @@
         },
         "django-comment": {
             "git": "https://github.com/genosltd/django-comment",
-            "ref": "e1f7269c1277da39cda92d31d02fbb95eed22072"
+            "ref": "f66f66e64a2745f5022ea5e7a270a556d6c57a72"
         },
         "django-hashtag": {
             "git": "https://github.com/genosltd/django-hashtag",
-            "ref": "6b3a815e99c3ca1ecbccac04428e622ea1a2764a"
+            "ref": "3cbe201fc43b168d3c425578b320330451a078a1"
         },
         "django-simple-history": {
             "hashes": [
