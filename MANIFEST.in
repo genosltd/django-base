@@ -1,3 +1,0 @@
-graft tests
-graft django_base/templates
-global-exclude db.sqlite3

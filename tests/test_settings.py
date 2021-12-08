@@ -16,8 +16,8 @@ INSTALLED_APPS = [
     'django_hashtag',
     'django_comment',
 
-    'test_app',
     'django_base.apps.DjangoBaseConfig',
+    'tests.test_app'
 ]
 
 MIDDLEWARE = [

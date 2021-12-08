@@ -8,10 +8,10 @@ django = "~=3.1.1"
 django-simple-history = "*"
 
 [dev-packages]
-django-base = {editable = true, path = "."}
 cookiecutter = "*"
 coverage = "*"
 build = "*"
+django-base = {editable = true, path = "."}
 
 [requires]
 python_version = "3.7"

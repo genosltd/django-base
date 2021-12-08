@@ -11,8 +11,17 @@ htmlcov
 # pip
 *.egg-info
 
+# venv
+__pycache__
+venv
+
 # build
 dist
+build
+.eggs
+
+# setuptools_scm
+version.py
 
 # django
 db.sqlite3
