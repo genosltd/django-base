@@ -2,6 +2,7 @@ from django.db import models
 
 from django_base.models import BaseModel
 
+from tinymce.models import HTMLField
 
 class ExampleModel(BaseModel):
-    example = models.TextField(null=True, blank=True)
+    example = HTMLField(null=True, blank=True)
