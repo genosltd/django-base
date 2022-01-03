@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from example_app.views import upload_image
+from django_base.views import upload_image
 
 urlpatterns = [
     path('admin/', admin.site.urls),

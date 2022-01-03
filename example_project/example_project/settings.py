@@ -65,7 +65,7 @@ ROOT_URLCONF = 'example_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'example_app/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +86,10 @@ WSGI_APPLICATION = 'example_project.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'postgresql': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_base_test',
         'USER': 'postgres',
@@ -167,4 +171,5 @@ TINYMCE_DEFAULT_CONFIG = {
         'code image | removeformat | help',
    'menubar': 'favs file edit view insert format tools table help',
    'statusbar': True,
+   'relative_urls':False, # fix wrong path error on image load
    }

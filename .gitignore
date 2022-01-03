@@ -25,3 +25,10 @@ version.py
 
 # django
 db.sqlite3
+
+# pycache
+__pycache__/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/

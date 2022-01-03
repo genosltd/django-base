@@ -1,11 +1,16 @@
 from simple_history.admin import SimpleHistoryAdmin
 
 from django.db.models import TextField
+from django.contrib import admin
+from django.contrib.contenttypes.admin import GenericTabularInline
+from django.utils.html import mark_safe
 from django_hashtag.admin import HasHashtagsAdmin
 from django_comment.admin import HasCommentsAdmin
 
 import functools
 from tinymce.widgets import TinyMCE
+
+from . models import ImageItem, ImageModel
 
 class _BaseModelAdmin(SimpleHistoryAdmin):
     @staticmethod
@@ -95,3 +100,41 @@ class BaseModelAdmin(HasHashtagsAdmin, HasCommentsAdmin, _BaseModelAdmin):
     formfield_overrides = {
         TextField: {'widget': TinyMCE()}
     }
+
+
+class ImageItemInline(GenericTabularInline):
+
+    model = ImageItem
+    can_delete = False
+    extra = 0
+    max_num = 0
+
+    fields = ['img_link',]
+    readonly_fields = ['img_link',]
+
+    def img_link(self, instance):
+        return mark_safe(" | ".join([
+            f'<a href="/admin/django_base/imagemodel/{img.id}/change">{img.name}</a>' for img in ImageItem.objects.get(object_id=instance.object_id).images.all()
+        ]))
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(ImageModel)
+class ImageModelAdmin(admin.ModelAdmin):
+    fields = ('name', 'image', 'hash', 'img_preview', )
+    list_display = ('name', 'img_preview', 'image', 'hash', )
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def image_tag(self):
+        return mark_safe(f'<img src="{self.image}"/>')
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
+
+    def img_preview(self, obj):
+        return obj.img_preview
+
+        
