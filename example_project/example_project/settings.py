@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,11 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'simple_history',
+    'tinymce',
     'django_hashtag.apps.DjangoHashtagConfig',
     'django_comment.apps.DjangoCommentConfig',
 
     'django_base',
-    'example_app'
+    'example_app',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +65,7 @@ ROOT_URLCONF = 'example_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'example_app/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,6 +88,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'postgresql': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_base_test',
+        'USER': 'postgres',
+        'PASSWORD': '123456',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -127,3 +137,39 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# also look for static files here
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# save static files here (running `py manage.py collectstatic`)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# save media files here
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+########################################
+# TINYMCE settings
+######################################## 
+
+TINYMCE_DEFAULT_CONFIG = {
+   'height': 300,
+   'width': 700,
+#    'cleanup_on_startup': True,
+#    'custom_undo_redo_levels': 20,
+   'selector': 'textarea',
+   'images_upload_url': '/upload_image/',
+#    'theme': 'silver',
+   'plugins': 'advlist,autolink,lists,link,image,charmap,print,preview,anchor,'
+        'searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,'
+        'code,help,wordcount',
+    'toolbar': 'undo redo | formatselect | '
+        'bold italic backcolor | alignleft aligncenter '
+        'alignright alignjustify | bullist numlist outdent indent | '
+        'code image | removeformat | help',
+   'menubar': 'favs file edit view insert format tools table help',
+   'statusbar': True,
+   'relative_urls':False, # fix wrong path error on image load
+   }
