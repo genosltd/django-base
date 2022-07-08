@@ -12,7 +12,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'test_app',
+    'tests.test_app',
     'django_base',
 ]
 

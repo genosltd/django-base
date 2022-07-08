@@ -11,6 +11,9 @@ htmlcov
 # pip
 *.egg-info
 
+# Pipenv
+Pipfile.lock
+
 # build
 dist
 
