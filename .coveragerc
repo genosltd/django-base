@@ -1,0 +1,5 @@
+[run]
+branch = True
+source = django_base
+command_line = runtests.py 
+
