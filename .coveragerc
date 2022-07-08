@@ -3,3 +3,5 @@ branch = True
 source = django_base
 command_line = runtests.py 
 
+[report]
+fail_under = 90
