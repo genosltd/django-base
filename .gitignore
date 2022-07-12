@@ -5,6 +5,9 @@
 # pandoc
 README.html
 
+# python
+__pycache__
+
 # coverage
 .coverage
 htmlcov
@@ -16,7 +19,11 @@ htmlcov
 Pipfile.lock
 
 # build
+build
 dist
+
+# setuptools_scm
+src/django_base/version.py
 
 # django
 db.sqlite3
