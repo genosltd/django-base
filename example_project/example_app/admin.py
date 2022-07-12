@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from django_base.admin import BaseModelAdmin
+from .models import Item
+
+
+@admin.register(Item)
+class ItemAdmin(BaseModelAdmin):
+    pass

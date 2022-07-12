@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+from django_base.models import BaseModel
+
+
+class Item(BaseModel):
+    example_field = models.CharField(max_length=255)

@@ -1,4 +1,6 @@
 from django.db import models
-from django_base import models as django_base_models
+from django_base.models import BaseModel
 
-# Create your models here.
+
+class TestModel(BaseModel):
+    test_field = models.CharField(max_length=255)
