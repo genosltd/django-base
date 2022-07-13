@@ -1,7 +1,8 @@
-from django.contrib import admin
+# from django.contrib import admin
+from simple_history.admin import SimpleHistoryAdmin
 
 
-class BaseModelAdmin(admin.ModelAdmin):
+class BaseModelAdmin(SimpleHistoryAdmin):
     basic_fields = ('uuid', 'owner', 'created_on', 'modified_on', 'is_active')
     _list_filter = ('is_active',)
     _ordering = ('-is_active',)
