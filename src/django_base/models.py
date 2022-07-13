@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from simple_history.models import HistoricalRecords
 
 import uuid
 
@@ -35,6 +36,8 @@ class BaseModel(models.Model):
     modified_on = models.DateTimeField(auto_now=True)
 
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+
+    history = HistoricalRecords(inherit=True)
 
     objects = BaseQuerySet.as_manager()
 
